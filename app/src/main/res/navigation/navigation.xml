@@ -8,17 +8,17 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="buu.informatics.s59160143.wow.MainFragment"
-        android:label="MainFragment" />
+        android:label="WOW" />
     <fragment
         android:id="@+id/listFragment"
         android:name="buu.informatics.s59160143.wow.ListFragment"
-        android:label="ListFragment" />
+        android:label="รายชื่อ" />
     <fragment
         android:id="@+id/aboutFragment"
         android:name="buu.informatics.s59160143.wow.AboutFragment"
-        android:label="AboutFragment" />
+        android:label="เกี่ยวกับแอป" />
     <fragment
         android:id="@+id/insertFragment"
         android:name="buu.informatics.s59160143.wow.InsertFragment"
-        android:label="InsertFragment" />
+        android:label="เพิ่มรายชื่อ" />
 </navigation>
