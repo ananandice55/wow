@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
     app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="buu.informatics.s59160143.wow.MainFragment"
-        android:label="MainFragment" >
-        <action
-            android:id="@+id/action_mainFragment_to_listFragment"
-            app:destination="@id/listFragment" />
-    </fragment>
+        android:label="MainFragment" />
     <fragment
         android:id="@+id/listFragment"
         android:name="buu.informatics.s59160143.wow.ListFragment"
@@ -19,4 +17,8 @@
         android:id="@+id/aboutFragment"
         android:name="buu.informatics.s59160143.wow.AboutFragment"
         android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/insertFragment"
+        android:name="buu.informatics.s59160143.wow.InsertFragment"
+        android:label="InsertFragment" />
 </navigation>
