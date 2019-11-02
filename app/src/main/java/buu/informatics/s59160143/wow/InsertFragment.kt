@@ -30,12 +30,12 @@ class InsertFragment : Fragment() {
         return binding.root
     }
     fun clickAdd() {
-        var name = binding.editText
-        var age = binding.editText2
-        var proportion = binding.editText3
-        var place = binding.editText4
-        var price = binding.editText5
-        var contact = binding.editText6
+        var name = binding.nameEditText
+        var age = binding.ageEditText
+        var proportion = binding.proportionEdittext
+        var place = binding.placeEditText
+        var price = binding.priceEditText
+        var contact = binding.contactEditText
 
 //        name.text = null
 //        age.text = null

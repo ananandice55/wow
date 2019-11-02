@@ -11,12 +11,12 @@ import kotlinx.coroutines.launch
 class ViewModel(application: Application) : AndroidViewModel(application) {
 
 
-    private val repository: dataViewModelFactory
+    private val repository: ViewModelFactory
     val allWater: LiveData<List<PeopleDatabaseModel>>
 
     init {
         val wordsDao = PeopleDatabase.getInstance(application.applicationContext).peopleDatabaseModels()
-        repository = dataViewModelFactory(wordsDao)
+        repository = ViewModelFactory(wordsDao)
         allWater = repository.allWater
 
     }

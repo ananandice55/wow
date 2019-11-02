@@ -75,13 +75,13 @@
                 android:hint="@string/hintPrice"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/editText6"
+                app:layout_constraintBottom_toTopOf="@+id/contactEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/placeEditText" />
 
             <EditText
-                android:id="@+id/editText6"
+                android:id="@+id/contactEditText"
                 android:layout_width="315dp"
                 android:layout_height="42dp"
                 android:ems="10"
@@ -125,7 +125,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText6" />
+                app:layout_constraintTop_toBottomOf="@+id/contactEditText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

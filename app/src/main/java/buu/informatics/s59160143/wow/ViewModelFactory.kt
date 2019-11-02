@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import buu.informatics.s59160143.wow.database.PeopleDao
 import buu.informatics.s59160143.wow.database.PeopleDatabaseModel
 
-class dataViewModelFactory(private val Dao: PeopleDao) {
+class ViewModelFactory(private val Dao: PeopleDao) {
 
     val allWater: LiveData<List<PeopleDatabaseModel>> = Dao.get()
 
