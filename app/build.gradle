@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -23,6 +25,9 @@ android {
     }
     dataBinding {
         enabled = true
+    }
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
     }
 }
 
@@ -45,3 +50,4 @@ dependencies {
     implementation 'com.google.android.material:material:<version>'
 
 }
+

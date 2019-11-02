@@ -6,4 +6,9 @@
     <string name="about">เกี่ยวกับแอป</string>
     <string name="item_1">รายชื่อ</string>
     <string name="item_2">เพิ่มรายชื่อ</string>
+    <string name="titleAbout">จัดทำโดย</string>
+    <string name="nameAbout">นายอนันต์ ไข่ทา</string>
+    <string name="showTextMain">ยินดีต้อนรับ</string>
+    <string name="title">title</string>
+    <string name="description">description</string>
 </resources>
