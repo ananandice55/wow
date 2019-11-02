@@ -17,4 +17,11 @@
     <string name="showContact">ติดต่อ</string>
     <string name="showAge">อายุ</string>
     <string name="showName">ชื่อ</string>
+    <string name="hintName">ชื่อ</string>
+    <string name="hintAge">อายุ</string>
+    <string name="hintProportion">สัดส่วน</string>
+    <string name="hintPlace">สถานที่รับงาน</string>
+    <string name="hintPrice">เรทราคา</string>
+    <string name="hintContact">ติดต่อ</string>
+    <string name="btnAdd">เพิ่ม</string>
 </resources>

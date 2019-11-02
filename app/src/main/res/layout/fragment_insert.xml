@@ -29,82 +29,82 @@
                 app:srcCompat="@mipmap/ic_launcher" />
 
             <EditText
-                android:id="@+id/editText"
-                android:layout_width="322dp"
-                android:layout_height="38dp"
+                android:id="@+id/nameEditText"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="ชื่อ"
+                android:hint="@string/hintName"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/editText2"
+                app:layout_constraintBottom_toTopOf="@+id/ageEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnChoose" />
 
             <EditText
-                android:id="@+id/editText2"
-                android:layout_width="315dp"
-                android:layout_height="43dp"
+                android:id="@+id/ageEditText"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="อายุ"
+                android:hint="@string/hintAge"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/editText3"
+                app:layout_constraintBottom_toTopOf="@+id/proportionEdittext"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText" />
+                app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
 
             <EditText
-                android:id="@+id/editText4"
-                android:layout_width="319dp"
-                android:layout_height="46dp"
+                android:id="@+id/placeEditText"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="สถานที่รับงาน"
+                android:hint="@string/hintPlace"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/editText5"
+                app:layout_constraintBottom_toTopOf="@+id/priceEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText3" />
+                app:layout_constraintTop_toBottomOf="@+id/proportionEdittext" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/priceEditText"
                 android:layout_width="318dp"
                 android:layout_height="44dp"
                 android:ems="10"
-                android:hint="เรทราคา"
+                android:hint="@string/hintPrice"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/editText6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText4" />
+                app:layout_constraintTop_toBottomOf="@+id/placeEditText" />
 
             <EditText
                 android:id="@+id/editText6"
                 android:layout_width="315dp"
                 android:layout_height="42dp"
                 android:ems="10"
-                android:hint="ติดต่อ"
+                android:hint="@string/hintContact"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/btnAdd"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText5" />
+                app:layout_constraintTop_toBottomOf="@+id/priceEditText" />
 
             <EditText
-                android:id="@+id/editText3"
-                android:layout_width="318dp"
-                android:layout_height="42dp"
+                android:id="@+id/proportionEdittext"
+                android:layout_width="320dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="สัดส่วน"
+                android:hint="@string/hintProportion"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/editText4"
+                app:layout_constraintBottom_toTopOf="@+id/placeEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText2" />
+                app:layout_constraintTop_toBottomOf="@+id/ageEditText" />
 
             <Button
                 android:id="@+id/btnChoose"
@@ -112,7 +112,7 @@
                 android:layout_height="50dp"
                 android:text="เพิ่มรูปภาพ"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/editText"
+                app:layout_constraintBottom_toTopOf="@+id/nameEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -121,7 +121,7 @@
                 android:id="@+id/btnAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ADD"
+                android:text="@string/btnAdd"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
