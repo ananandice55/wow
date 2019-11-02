@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <FrameLayout
-
+        android:id="@+id/listFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ListFragment">
 
         <ListView
+            android:id="@+id/listViewData"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp" />
     </FrameLayout>
 </layout>

@@ -11,4 +11,10 @@
     <string name="showTextMain">ยินดีต้อนรับ</string>
     <string name="title">title</string>
     <string name="description">description</string>
+    <string name="showProportion">สัดส่วน</string>
+    <string name="showPlace">สถานที่รับงาน</string>
+    <string name="showPrice">เรทราคา</string>
+    <string name="showContact">ติดต่อ</string>
+    <string name="showAge">อายุ</string>
+    <string name="showName">ชื่อ</string>
 </resources>

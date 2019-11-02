@@ -12,7 +12,11 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="buu.informatics.s59160143.wow.ListFragment"
-        android:label="รายชื่อ" />
+        android:label="รายชื่อ" >
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="buu.informatics.s59160143.wow.AboutFragment"
@@ -21,4 +25,8 @@
         android:id="@+id/insertFragment"
         android:name="buu.informatics.s59160143.wow.InsertFragment"
         android:label="เพิ่มรายชื่อ" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="buu.informatics.s59160143.wow.DetailFragment"
+        android:label="รายละเอียด" />
 </navigation>
