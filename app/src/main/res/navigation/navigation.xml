@@ -22,9 +22,13 @@
         android:name="buu.informatics.s59160143.wow.AboutFragment"
         android:label="เกี่ยวกับแอป" />
     <fragment
-        android:id="@+id/insertFragment"
+        android:id="@+id/InsertFragment"
         android:name="buu.informatics.s59160143.wow.InsertFragment"
-        android:label="เพิ่มรายชื่อ" />
+        android:label="เพิ่มรายชื่อ" >
+        <action
+            android:id="@+id/action_InsertFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="buu.informatics.s59160143.wow.DetailFragment"

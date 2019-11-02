@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "54588619592",
+    "firebase_url": "https://wowfirebaseproject-7a66d.firebaseio.com",
+    "project_id": "wowfirebaseproject-7a66d",
+    "storage_bucket": "wowfirebaseproject-7a66d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54588619592:android:77f72c629b464e4c89917d",
+        "android_client_info": {
+          "package_name": "buu.informatics.s59160143.wow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54588619592-5bp3btdb5lboedpfh6ojn3rubnf06ror.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "buu.informatics.s59160143.wow",
+            "certificate_hash": "cf9b847248e8f250f76ecc7911f80d77eeb2fdf1"
+          }
+        },
+        {
+          "client_id": "54588619592-0ov08ddng84cr76ivjd7amps9454lv3k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHy2VfGHGMKitb1VTOCmKW8IqPFrBKD9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54588619592-0ov08ddng84cr76ivjd7amps9454lv3k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
