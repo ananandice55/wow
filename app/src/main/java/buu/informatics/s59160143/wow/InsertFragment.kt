@@ -42,7 +42,7 @@ class InsertFragment : Fragment() {
     var pictureUrl = ""
     private var firebaseStore: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
-//    var mAuth = FirebaseAuth.getInstance()
+    var mAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,49 +52,48 @@ class InsertFragment : Fragment() {
             inflater,
             R.layout.fragment_insert, container, false
         )
-//        binding.btnChoose.setOnClickListener {
-//            pickPhotoFromGallery()
-//        }
 
         people = ViewModelProviders.of(this).get(ViewModel::class.java)
         submit()
+        pickImage()
 
-
-//        firebaseStore = FirebaseStorage.getInstance()
-//        storageReference = FirebaseStorage.getInstance().reference
-        //signIn("59160143@go.buu.ac.th", "@icedexchon123")
-       // checkPermission()
+        firebaseStore = FirebaseStorage.getInstance()
+        storageReference = FirebaseStorage.getInstance().reference
+        signIn("59160143@go.buu.ac.th", "@icedexchon123")
+        checkPermission()
 
         return binding.root
     }
+
     private fun submit() {
         binding.btnAdd.setOnClickListener {
-            //uploadImage()
-            if (!binding.nameEditText.text.isEmpty() && !binding.ageEditText.text.isEmpty() && !binding.proportionEdittext.text.isEmpty()
-                && !binding.placeEditText.text.isEmpty() && !binding.priceEditText.text.isEmpty() && !binding.contactEditText.text.isEmpty()) {
+            uploadImage()
+            if (!binding.nameEditText.text.isEmpty() && !binding.ageEditText.text.isEmpty() && !binding.proportionEditText.text.isEmpty()
+                && !binding.placeEditText.text.isEmpty() && !binding.priceEditText.text.isEmpty() && !binding.contactEditText.text.isEmpty()
+            ) {
                 Handler().postDelayed({
+                    Log.e("imagelink", pictureUrl)
                     people.insert(
                         PeopleDatabaseModel(
-                            0,
-                            //pictureUrl,
                             binding.nameEditText.text.toString(),
                             binding.ageEditText.text.toString(),
-                            binding.proportionEdittext.text.toString(),
+                            binding.proportionEditText.text.toString(),
                             binding.placeEditText.text.toString(),
                             binding.priceEditText.text.toString(),
-                            binding.contactEditText.text.toString()
+                            binding.contactEditText.text.toString(),
+                            pictureUrl
                         )
                     )
                     Handler().postDelayed({
-                                            people.peopleAll.observe(this, Observer { t ->
-                        t.forEach {
-                            Log.i("pictureUpload2", "${it} ")
-                        }
-                    })
-                }, 200)
+                        people.peopleAll.observe(this, Observer { t ->
+                            t.forEach {
+                                Log.i("pictureUpload2", "${it} ")
+                            }
+                        })
+                    }, 1000)
                     Toast.makeText(getActivity(), "บันทึกข้อมูลเรียบร้อย", Toast.LENGTH_LONG).show()
                     view?.findNavController()
-                        ?.navigate(R.id.action_InsertFragment_to_mainFragment)
+                        ?.navigate(InsertFragmentDirections.actionInsertFragmentToMainFragment())
                 }, 2000)
             } else {
                 Toast.makeText(getActivity(), "กรุณากรอกข้อมูลให้ครบถ้วน", Toast.LENGTH_LONG).show()
@@ -102,91 +101,100 @@ class InsertFragment : Fragment() {
 
         }
     }
-//    private fun uploadImage() {
-//        if (fileUri != null) {
-//            val ref = storageReference?.child("uploads/" + UUID.randomUUID().toString())
-//            val uploadTask = ref?.putFile(fileUri!!)
-//            uploadTask?.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
-//
-//                if (!task.isSuccessful) {
-//                    task.exception?.let {
-//                        throw it
-//                    }
-//                }
-//                return@Continuation ref.downloadUrl
-//            })?.addOnCompleteListener { task ->
-//                Log.i("task",task.toString())
-//                if (task.isSuccessful) {
-//                    val downloadUri = task.result
-//                    pictureUrl = downloadUri.toString()
-//                    addUploadRecordToDb(downloadUri.toString())
-//                } else {
-//                }
-//            }?.addOnFailureListener {
-//
-//            }
-//        } else {
-//            Toast.makeText(getActivity(), "Please Upload an Image", Toast.LENGTH_SHORT).show()
-//        }
-//    }
-//    private fun addUploadRecordToDb(uri: String) {
-//        val db = FirebaseFirestore.getInstance()
-//        val data = HashMap<String, Any>()
-//        data["imageUrl"] = uri
-//        db.collection("posts")
-//            .add(data)
-//            .addOnSuccessListener { documentReference ->
-//                Toast.makeText(getActivity(), "เพิ่มเรียบร้อย", Toast.LENGTH_LONG).show()
-//            }
-//            .addOnFailureListener { e ->
-//                Toast.makeText(getActivity(), "${e}", Toast.LENGTH_LONG).show()
-//            }
-//    }
-    companion object {
-        private val IMAGE_PICK_CODE = 1000;
-        private val PERMISSION_CODE = 1001;
+
+    private fun uploadImage() {
+        if (fileUri != null) {
+            val ref = storageReference?.child("uploads/" + UUID.randomUUID().toString())
+            val uploadTask = ref?.putFile(fileUri!!)
+            uploadTask?.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
+
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        throw it
+                    }
+                }
+                return@Continuation ref.downloadUrl
+            })?.addOnCompleteListener { task ->
+                Log.i("task", task.toString())
+                if (task.isSuccessful) {
+                    val downloadUri = task.result
+                    pictureUrl = downloadUri.toString()
+                    addUploadRecordToDb(downloadUri.toString())
+                } else {
+                }
+            }?.addOnFailureListener {
+
+            }
+        } else {
+            Toast.makeText(getActivity(), "Please Upload an Image", Toast.LENGTH_SHORT).show()
+        }
     }
-//    private fun checkPermission() {
-//        if (getActivity()?.applicationContext?.let {
-//                ContextCompat.checkSelfPermission(
-//                    it,
-//                    Manifest.permission.READ_EXTERNAL_STORAGE
-//                )
-//            } != PackageManager.PERMISSION_GRANTED) {
-//            val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE);
-//            requestPermissions(permissions, PERMISSION_CODE);
-//
-//        }
-//    }
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//
-//
-//        if (resultCode == Activity.RESULT_OK  && requestCode == AppConstants.PICK_PHOTO_REQUEST) {
-//            fileUri = data?.data
-//            binding.btnChoose.setOnClickListener {
-//                binding.imageView.setImageURI(fileUri)
-//
-//            }
-//        }
-//
-//    }
-//    private fun signIn(email: String, password: String) {
-//
-//        mAuth.signInWithEmailAndPassword(email, password)
-//            ?.addOnCompleteListener { task: Task<AuthResult> ->
-//                if (task.isSuccessful) {
-//                    val firebaseUser = this.mAuth.currentUser!!
-//                } else {
-//                    Log.e("error", "${task.exception?.message}")
-//                }
-//            }
-//    }
-//    private fun pickPhotoFromGallery() {
-//        val pickImageIntent = Intent(
-//            Intent.ACTION_PICK,
-//            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-//        )
-//        startActivityForResult(pickImageIntent, AppConstants.PICK_PHOTO_REQUEST)
-//    }
-//
+
+    private fun addUploadRecordToDb(uri: String) {
+        val db = FirebaseFirestore.getInstance()
+        val data = HashMap<String, Any>()
+        data["imageUrl"] = uri
+        db.collection("posts")
+            .add(data)
+            .addOnSuccessListener { documentReference ->
+                Toast.makeText(getActivity(), "เพิ่มเรียบร้อย", Toast.LENGTH_LONG).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(getActivity(), "${e}", Toast.LENGTH_LONG).show()
+            }
+    }
+
+    companion object {
+        private val IMAGE_PICK_CODE = 1000
+        private val PERMISSION_CODE = 1001
+    }
+
+    private fun checkPermission() {
+        if (getActivity()?.applicationContext?.let {
+                ContextCompat.checkSelfPermission(
+                    it,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                )
+            } != PackageManager.PERMISSION_GRANTED) {
+            val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+            requestPermissions(permissions, PERMISSION_CODE)
+
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        fileUri = data?.data
+
+        if (resultCode == Activity.RESULT_OK && requestCode == AppConstants.PICK_PHOTO_REQUEST) {
+            binding.imageButton.setImageURI(data?.data)
+
+        }
+
+    }
+
+    private fun signIn(email: String, password: String) {
+        Log.e("Firebase", "Auth........")
+
+        mAuth.signInWithEmailAndPassword(email, password)
+            ?.addOnCompleteListener { task: Task<AuthResult> ->
+                if (task.isSuccessful) {
+                    Log.e("Firebase", "successful")
+                    val firebaseUser = this.mAuth.currentUser!!
+                } else {
+                    Log.e("error", "${task.exception?.message}")
+                }
+            }
+    }
+
+    private fun pickImage() {
+        binding.imageButton.setOnClickListener {
+            //Intent to pick image
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, IMAGE_PICK_CODE)
+
+            Log.i("nameImage", fileUri.toString())
+        }
+    }
+
 }

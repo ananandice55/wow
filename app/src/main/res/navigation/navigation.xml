@@ -32,5 +32,11 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="buu.informatics.s59160143.wow.DetailFragment"
-        android:label="รายละเอียด" />
+        android:label="รายละเอียด" >
+        <argument android:name="people"
+            app:argType="string" />
+        <argument
+            android:name="peopleimage"
+            app:argType="string" />
+    </fragment>
 </navigation>

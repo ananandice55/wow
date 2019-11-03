@@ -15,7 +15,7 @@ interface PeopleDao {
     @Update
     fun update(people: PeopleDatabaseModel)
 
-    @Query("SELECT * FROM people ORDER BY peopleId ASC")
+    @Query("SELECT * FROM people ORDER BY name ASC")
     fun get(): LiveData<List<PeopleDatabaseModel>>
 
     @Query("DELETE FROM people")

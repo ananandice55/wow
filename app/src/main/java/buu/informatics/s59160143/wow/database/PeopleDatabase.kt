@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [PeopleDatabaseModel::class], version = 2, exportSchema = false)
+@Database(entities = [PeopleDatabaseModel::class], version = 1, exportSchema = false)
 
 abstract class PeopleDatabase : RoomDatabase() {
 
@@ -22,7 +22,7 @@ abstract class PeopleDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     PeopleDatabase::class.java,
-                    "water_database"
+                    "people_database"
                 ).allowMainThreadQueries()
                     .build()
                 INSTANCE = instance
