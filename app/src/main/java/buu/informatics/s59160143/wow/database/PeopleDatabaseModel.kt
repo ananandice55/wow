@@ -9,8 +9,8 @@ data class PeopleDatabaseModel(
     @PrimaryKey(autoGenerate = true)
     var peopleId: Int = 0,
 
-    @ColumnInfo(name = "picture")
-    var peoplePicture: String,
+    //@ColumnInfo(name = "picture")
+    //var peoplePicture: String,
 
     @ColumnInfo(name = "name")
     var peopleName: String,

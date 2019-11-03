@@ -12,12 +12,12 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
 
 
     private val repository: ViewModelFactory
-    val allWater: LiveData<List<PeopleDatabaseModel>>
+    val peopleAll: LiveData<List<PeopleDatabaseModel>>
 
     init {
         val wordsDao = PeopleDatabase.getInstance(application.applicationContext).peopleDatabaseModels()
         repository = ViewModelFactory(wordsDao)
-        allWater = repository.allWater
+        peopleAll = repository.peopleAll
 
     }
 

@@ -2,14 +2,8 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <FrameLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".InsertFragment">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".InsertFragment">
         <!-- TODO: Update blank fragment layout -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -128,6 +122,4 @@
                 app:layout_constraintTop_toBottomOf="@+id/contactEditText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </FrameLayout>
 </layout>

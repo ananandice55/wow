@@ -10,10 +10,10 @@ import androidx.room.Update
 interface PeopleDao {
 
     @Insert
-    fun insert(water: PeopleDatabaseModel)
+    fun insert(people: PeopleDatabaseModel)
 
     @Update
-    fun update(water: PeopleDatabaseModel)
+    fun update(people: PeopleDatabaseModel)
 
     @Query("SELECT * FROM people ORDER BY peopleId ASC")
     fun get(): LiveData<List<PeopleDatabaseModel>>
