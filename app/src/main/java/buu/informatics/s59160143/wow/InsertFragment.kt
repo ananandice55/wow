@@ -67,7 +67,7 @@ class InsertFragment : Fragment() {
 
     private fun submit() {
         binding.btnAdd.setOnClickListener {
-            uploadImage()
+
             if (!binding.nameEditText.text.isEmpty() && !binding.ageEditText.text.isEmpty() && !binding.proportionEditText.text.isEmpty()
                 && !binding.placeEditText.text.isEmpty() && !binding.priceEditText.text.isEmpty() && !binding.contactEditText.text.isEmpty()
             ) {
@@ -167,6 +167,7 @@ class InsertFragment : Fragment() {
 
         if (resultCode == Activity.RESULT_OK && requestCode == AppConstants.PICK_PHOTO_REQUEST) {
             binding.imageButton.setImageURI(data?.data)
+            uploadImage()
 
         }
 
@@ -188,12 +189,16 @@ class InsertFragment : Fragment() {
 
     private fun pickImage() {
         binding.imageButton.setOnClickListener {
-            //Intent to pick image
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent, IMAGE_PICK_CODE)
-
-            Log.i("nameImage", fileUri.toString())
+//            //Intent to pick image
+//            val intent = Intent(Intent.ACTION_PICK)
+//            intent.type = "image/*"
+//            startActivityForResult(intent, IMAGE_PICK_CODE)
+//            Log.i("nameImage", fileUri.toString())
+            val pickImageIntent = Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            )
+            startActivityForResult(pickImageIntent, AppConstants.PICK_PHOTO_REQUEST)
         }
     }
 

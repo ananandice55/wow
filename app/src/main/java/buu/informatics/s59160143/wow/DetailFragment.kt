@@ -1,17 +1,18 @@
 package buu.informatics.s59160143.wow
 
 
+import android.content.ActivityNotFoundException
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.*
+import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import buu.informatics.s59160143.wow.databinding.FragmentDetailBinding
 import buu.informatics.s59160143.wow.databinding.FragmentListBinding
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_detail.*
 import kotlinx.android.synthetic.main.people_list.*
 
 /**
@@ -29,6 +30,7 @@ class DetailFragment : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_detail, container, false
         )
+        setHasOptionsMenu(true)
         setDetail()
         return binding.root
     }
@@ -50,6 +52,33 @@ class DetailFragment : Fragment() {
             picasso.load(getImage).into(detailImage)
         }
     }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        if (menu != null) {
+            if (inflater != null) {
+                super.onCreateOptionsMenu(menu, inflater)
+            }
+        }
+        inflater?.inflate(R.menu.share, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.shareMenu -> onShare()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    private fun onShare() {
+        val shareIntent = ShareCompat.IntentBuilder.from(getActivity())
+            .setText(nameTextView.text.toString())
+            .setType("text/plain")
+            .intent
+        try {
+            startActivity(shareIntent)
+        } catch (ex: ActivityNotFoundException) {
+
+        }
+    }
+
 
 
 }

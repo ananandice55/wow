@@ -24,4 +24,8 @@
     <string name="hintPrice">เรทราคา</string>
     <string name="hintContact">ติดต่อ</string>
     <string name="btnAdd">เพิ่ม</string>
+    <string name="wowApp">WOWAPP</string>
+    <string name="nameAbouts">นาย อนันต์ ไข่ทา 59160143</string>
+    <string name="aboutName">นายอนันต์ ไข่ทา 59160143</string>
+    <string name="shareBtn">แชร์</string>
 </resources>
