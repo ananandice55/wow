@@ -61,101 +61,36 @@ class ListFragment : Fragment() {
     }
 
 
-    private fun setPeople() {
-        var array: ArrayList<People> = ArrayList()
-        array.add(
-            People(
-                "น้องฟ้า",
-                "23",
-                "34-24-35",
-                "บางแสน",
-                "1500-2000",
-                "line:@ssss",
-                "https://firebasestorage.googleapis.com/v0/b/wowfirebaseproject-7a66d.appspot.com/o/uploads%2Fimgtwo.jpg?alt=media&token=486f1596-a430-4b9d-b15f-38339678141f"
-            )
-        )
-        array.add(
-            People(
-                "น้องปลาย",
-                "24",
-                "34-24-35",
-                "บางแสน",
-                "1500-2000",
-                "line:@ssss",
-                "https://firebasestorage.googleapis.com/v0/b/wowfirebaseproject-7a66d.appspot.com/o/uploads%2Fimgthree.jpg?alt=media&token=78cb987f-5d23-48ca-bb28-8f97c08a0283"
-            )
-        )
-        array.add(
-            People(
-                "น้องหญิง",
-                "25",
-                "34-24-35",
-                "บางแสน",
-                "1500-2000",
-                "line:@ssss",
-                "https://firebasestorage.googleapis.com/v0/b/wowfirebaseproject-7a66d.appspot.com/o/uploads%2Fimgfour.jpg?alt=media&token=47310aa5-8b18-41ff-9517-d21ae3f7b22b"
-            )
-        )
-        array.add(
-            People(
-                "น้องหนาว",
-                "26",
-                "34-24-35",
-                "บางแสน",
-                "1500-2000",
-                "line:@ssss",
-                "https://firebasestorage.googleapis.com/v0/b/wowfirebaseproject-7a66d.appspot.com/o/uploads%2Fimgfive.jpg?alt=media&token=ddd93d56-a3a9-4f28-a50e-46815c951907"
-            )
-        )
-
-        array.forEach {
-            viewModel.insert(
-                PeopleDatabaseModel(
-                    it.name,
-                    it.age,
-                    it.proportion,
-                    it.place,
-                    it.price,
-                    it.contact,
-                    it.image
-                )
-            )
-        }
-    }
 
     private fun getPeople(): ArrayList<People> {
         var array: ArrayList<People> = ArrayList()
         var count = 0
 
         viewModel.peopleAll.observe(this, Observer { it ->
-            if (it.isEmpty()) {
-                Log.i("test", "empty")
-                setPeople()
-            } else {
-                it.forEach {
-                    Log.i("test", it.peopleName)
-                    array.add(
-                        People(
-                            it.peopleName,
-                            it.peopleAge,
-                            it.peopleProportion,
-                            it.peoplePlace,
-                            it.peoplePrice,
-                            it.peopleContact,
-                            it.peopleImage
-                        )
+            it.forEach {
+                Log.i("test", it.peopleName)
+                array.add(
+                    People(
+                        it.peopleName,
+                        it.peopleAge,
+                        it.peopleProportion,
+                        it.peoplePlace,
+                        it.peoplePrice,
+                        it.peopleContact,
+                        it.peopleImage
                     )
-                    count++
-                }
-                if (count == it.size) {
-                    val adapter = RecyclerViewAdapter()
-                    binding.recyclerViewPeople.adapter = adapter
-                    adapter.data = array
-                    Log.i("test", "${array.size}")
-                    Log.i("test", "${adapter.data.size}")
-
-                }
+                )
+                count++
             }
+            if (count == it.size) {
+                val adapter = RecyclerViewAdapter()
+                binding.recyclerViewPeople.adapter = adapter
+                adapter.data = array
+                Log.i("test", "${array.size}")
+                Log.i("test", "${adapter.data.size}")
+
+            }
+
 
         })
         return array
